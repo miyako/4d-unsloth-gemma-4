@@ -180,3 +180,6 @@ O^O/ \_/ \    Batch size per device = 2 | Gradient accumulation steps = 4
 \        /    Data Parallel GPUs = 1 | Total batch size (2 x 4 x 1) = 8
  "-____-"     Trainable parameters = 31,039,488 of 5,154,217,504 (0.60% trained)
 ```
+
+> [!TIP]
+> You an merge a LoRA adapter to a GGUF model. To track progess, you might want to verify fine-tuned models each step of the way and keep them as transitional checkpoints.
