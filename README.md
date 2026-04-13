@@ -150,7 +150,7 @@ The result was a terrible hallucination:
 > 
 > By following this structure, you ensure that your HTTP interactions within 4D are robust, secure, and fully managed by the `NetworkModule`.
 
-What is noteworthy that the 4D coding language has been around for decades, yet, it has clearly not made a meaningful impact on the models weights related to coding. Simply having more resources on the internet is unlikely to sway how the model thinks. It is essential to develop a cutom LoRA adapter in order to improves the quality of 4D code generation by AI. 
+What is noteworthy that the 4D coding language has been around for decades, yet, it has clearly not made a meaningful impact on the model's weights related to coding capability. Simply having more resources on the internet is unlikely to sway how the model thinks. It is essential to develop a cutom LoRA adapter in order to improves the quality of 4D code generation by AI. 
 
 ## Training
 
