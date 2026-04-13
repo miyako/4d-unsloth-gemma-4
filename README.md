@@ -37,11 +37,11 @@ Suppose you want to teach an LLM about 4D. You need to design a training course 
 - Analysis: "what's wrong with this code"
 - Documentation: insert comments and generate .md files
 
-Before we start, let's establish the baseline. Using Gemma 4, I prompt
+Before we start, let's establish the baseline. Using Gemma 4, I prompt:
 
 > How do I make HTTP requests in 4D?
 
-The result is a terrible hallucination:
+The result was a terrible hallucination:
 
 > As a 4D-LLM based on the v21 feature set, I can guide you on making HTTP requests within the 4D development environment.
 >
@@ -150,3 +150,4 @@ The result is a terrible hallucination:
 > 
 > By following this structure, you ensure that your HTTP interactions within 4D are robust, secure, and fully managed by the `NetworkModule`.
  
+The goal of fine-tuning is train this model to produce usable 4D code. 
