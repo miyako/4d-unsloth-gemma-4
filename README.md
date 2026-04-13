@@ -163,7 +163,7 @@ I created Alpaca datasets using public resources and a **LoRA** [Notebook](https
 |[Knowledge Base]() |`NVIDIA A100-SXM4-40GB`|`1`
 
 > [!NOTE]
-> Feeding documentation is only the first step. To actually train a model in coding, you need urated request and response examples such as:
+> Feeding documentation is only the first step. To actually train a model in coding, **you need carefully edited request and response examples written by an expert** such as:
 > - Write a unit test for this
 > - Refactor this in ORDA
 > - Remove inter-process variables from this
