@@ -20,7 +20,7 @@ While tool calling allows the LLM to include new information its output, an impr
 
 ### What is a LoRA adapter?
 
-A **LoRA adapter** is like a lens that adjusts the model's built-in weights so that some weights become more or less reactive to each other. Since a base model already has good grasp of how language works and retraining is expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of LLMs might have more exposure to the information during training.
+A **LoRA adapter** is like a lens that adjusts the model's built-in weights so that some weights become more or less reactive to each other. Since a base model already has good grasp of how language works and retraining is expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of frontier models might have more exposure to the information during its initial training.
 
 ### Unsloth
 
