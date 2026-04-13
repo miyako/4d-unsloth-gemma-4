@@ -171,6 +171,6 @@ I created Alpaca datasets using public resources and a **LoRA** [Notebook](https
 > - Add documentation to this
 > - Why does this code not work?
 > 
-> An LLM could be used to generate paraphrased variants, but by defintion you can't use an LLM to teach itself something it doesn't know already.
+> An LLM can be used to generate paraphrased variants, but by defintion you can't use an LLM to teach itself something it doesn't know already.
 
 
