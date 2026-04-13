@@ -18,9 +18,9 @@ Modern LLMs are trained to search the internet for new information if necessary.
 
 While tool calling allows the LLM to include new information its output, an impromptu web search can only go so far. Simply putting things up on the internet doesn't replace actual training. If a model does not have access to the internet, it must generate a response solely based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`.
 
-### How does an adapter refine an LLM's output?
+### What is a LoRA adapter?
 
-A base model already has good grasp of how language works. There is no need to retrain the model from scratch just to teanch some additional knowledge. Instead, you can create a **LoRA adapter**. An adapter is like a lens that adjusts the the built-in weights of a base model so that tokens become more or less likely to react with each other.
+A **LoRA adapter** is like a lens that adjusts the model's built-in weights so that some weights become more or less reactive to each other. Since a base model already has good grasp of how language works and retraining is expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of LLMs might have more exposure to the information during training.
 
 ### Unsloth
 
