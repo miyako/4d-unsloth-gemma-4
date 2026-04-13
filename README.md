@@ -151,3 +151,7 @@ The result was a terrible hallucination:
 > By following this structure, you ensure that your HTTP interactions within 4D are robust, secure, and fully managed by the `NetworkModule`.
 
 what is noteworthy that the 4D coding language has been around for decades, well before the model's knowledge cutoff date. Yet, it has clearly not made a meaningful impact on the models weights related to coding. Our goal is to develop a cutom LoRA adapter that improves the quality of its generated 4D code. 
+
+## Google Colab Notebook
+
+https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing
