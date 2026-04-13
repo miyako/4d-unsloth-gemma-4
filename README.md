@@ -16,7 +16,7 @@ Every LLM has a knowledge cutoff date. Any information made public after that da
 
 Modern LLMs are trained to search the internet for new information if necessary. Whether a prompt triggers a web search depends on how the prompt is engineered and how the model was trained to design a plan before generating its output. 
 
-While tool calling allows the LLM to include new information its output, an impromptu web search can only go so far. Simply putting things up on the internet doesn't replace actual training. 
+While tool calling allows the LLM to include new information its output, an impromptu web search can only go so far. Simply putting things up on the internet doesn't replace actual training. If a model does not have access to the internet, it must generate a response solely based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`.
 
 ### How does an adapter refine an LLM's output?
 
@@ -149,5 +149,8 @@ The result was a terrible hallucination:
     *   Log the error details.
 > 
 > By following this structure, you ensure that your HTTP interactions within 4D are robust, secure, and fully managed by the `NetworkModule`.
+
+what is noteworthy that the 4D coding language has been around for decades, well before the model's knowledge cutoff date.
+This proves that 
  
 The goal of fine-tuning is train this model to produce usable 4D code. 
