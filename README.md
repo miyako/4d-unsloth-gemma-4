@@ -173,4 +173,10 @@ I created Alpaca datasets using public resources and a **LoRA** [Notebook](https
 > 
 > An LLM can be used to generate paraphrased variants, but by defintion you can't use an LLM to teach itself something it doesn't know already.
 
-
+```
+==((====))==  Unsloth - 2x faster free finetuning | Num GPUs used = 1
+   \\   /|    Num examples = 29,249 | Num Epochs = 1 | Total steps = 3,657
+O^O/ \_/ \    Batch size per device = 2 | Gradient accumulation steps = 4
+\        /    Data Parallel GPUs = 1 | Total batch size (2 x 4 x 1) = 8
+ "-____-"     Trainable parameters = 31,039,488 of 5,154,217,504 (0.60% trained)
+```
