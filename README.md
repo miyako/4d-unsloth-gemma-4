@@ -159,3 +159,6 @@ https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2
 ## Google Colab Notebook
 
 https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing
+
+> [!TIP]
+> Building the xformers wheel from source can take over an hour because it involves compiling complex CUDA kernels.
