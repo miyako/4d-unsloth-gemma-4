@@ -1,0 +1,114 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"css": [
+		"/SOURCES/main.css"
+	],
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onUnload",
+		"onAfterEdit"
+	],
+	"windowTitle": "",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"Start Conversation": {
+					"type": "button",
+					"text": "Start Conversation",
+					"top": 65,
+					"left": 10,
+					"width": 150,
+					"height": 37,
+					"events": [
+						"onClick"
+					],
+					"focusable": false,
+					"method": "ObjectMethods/Start Conversation.4dm",
+					"sizingX": "fixed"
+				},
+				"Chat Result (LOCAL)": {
+					"type": "input",
+					"left": 10,
+					"top": 323,
+					"width": 693,
+					"height": 257,
+					"dataSource": "",
+					"enterable": false,
+					"fill": "transparent",
+					"showSelection": true,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"hideFocusRing": true
+				},
+				"Continue Conversation": {
+					"type": "button",
+					"text": "Continue Conversation",
+					"top": 65,
+					"left": 170,
+					"width": 150,
+					"height": 37,
+					"events": [
+						"onClick"
+					],
+					"focusable": false,
+					"method": "ObjectMethods/Continue Conversation.4dm",
+					"sizingX": "fixed"
+				},
+				"Image": {
+					"type": "input",
+					"left": 10,
+					"top": 132,
+					"width": 693,
+					"height": 177,
+					"dataSource": "Form:C1466.userPrompt",
+					"enterable": true,
+					"fill": "transparent",
+					"sizingX": "grow",
+					"sizingY": "fixed",
+					"hideFocusRing": true,
+					"dataSourceTypeHint": "text",
+					"focusable": false
+				},
+				"Prompt": {
+					"type": "dropdown",
+					"left": 10,
+					"top": 23,
+					"width": 310,
+					"height": 22,
+					"events": [
+						"onDataChange"
+					],
+					"dataSourceTypeHint": "object",
+					"dataSource": "Form:C1466.prompt",
+					"method": "ObjectMethods/Prompt.4dm"
+				}
+			}
+		}
+	],
+	"geometryStamp": 335,
+	"menuBar": "Barre #1",
+	"method": "method.4dm",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}
