@@ -182,4 +182,4 @@ O^O/ \_/ \    Batch size per device = 2 | Gradient accumulation steps = 4
 ```
 
 > [!TIP]
-> You an merge a LoRA adapter to a GGUF model. To track progess, you might want to verify fine-tuned models each step of the way and keep them as transitional checkpoints.
+> You can merge a LoRA adapter with a GGUF model. To track progess, you might want to verify fine-tuned models each step of the way and publish them as transitional checkpoints.
