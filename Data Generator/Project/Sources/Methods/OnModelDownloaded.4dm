@@ -33,4 +33,5 @@ If (Not:C34($file.exists))
 	return 
 End if 
 
-TEST_Gemma
+Extract SET OPTION(Extract Option Tokenizer File; $file)
+ALERT:C41("Tokenizer loaded!")

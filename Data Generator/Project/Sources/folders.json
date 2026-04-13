@@ -1,3 +1,21 @@
 {
+	"Demo": {
+		"methods": [
+			"OnModelDownloaded",
+			"TEST_Gemma"
+		],
+		"forms": [
+			"TEST_LOCAL"
+		],
+		"classes": [
+			"_Agent",
+			"Gemma"
+		]
+	},
+	"LoRA": {
+		"methods": [
+			"LoRA_doc"
+		]
+	},
 	"trash": {}
 }

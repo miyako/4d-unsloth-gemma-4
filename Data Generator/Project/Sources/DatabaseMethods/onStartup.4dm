@@ -12,14 +12,17 @@ $event:=cs:C1710.event.event.new()
 
 $event.onError:=Formula:C1597(OnModelDownloaded)
 $event.onSuccess:=Formula:C1597(OnModelDownloaded)
+
 $event.onData:=Formula:C1597(LOG EVENT:C667(Into 4D debug message:K38:5; This:C1470.file.fullName+":"+String:C10((This:C1470.range.end/This:C1470.range.length)*100; "###.00%")))
+//$event.onData:=Formula(MESSAGE(This.file.fullName+":"+String((This.range.end/This.range.length)*100; "###.00%")))
 $event.onResponse:=Formula:C1597(LOG EVENT:C667(Into 4D debug message:K38:5; This:C1470.file.fullName+":download complete"))
+//$event.onResponse:=Formula(MESSAGE(This.file.fullName+":download complete"))
 $event.onTerminate:=Formula:C1597(LOG EVENT:C667(Into 4D debug message:K38:5; (["process"; $1.pid; "terminated!"].join(" "))))
 
 $port:=8080
 
 var $folder : 4D:C1709.Folder
-var $path; $mmproj; $URL; $cache_type_k; $cache_type_v : Text
+var $path; $mmproj; $cache_type_k; $cache_type_v : Text
 var $n_gpu_layers; $threads; $batches; $ubatch_size; $batch_size; $max_position_embeddings : Integer
 
 $folder:=$homeFolder.folder("gemma-4-E2B")
@@ -44,6 +47,12 @@ End if
 
 var $options : Object
 
+/*
+temperature = 1.0
+top_p = 0.95
+top_k = 64
+*/
+
 $options:={\
 ctx_size: $max_position_embeddings*$batches; \
 batch_size: $batch_size; \
@@ -54,7 +63,7 @@ threads_batch: $threads; \
 threads_http: 2; \
 temp: 1; \
 min_p: 0; \
-top_k: 20; \
+top_k: 64; \
 top_p: 0.95; \
 repeat_penalty: 1; \
 presence_penalty: 0; \

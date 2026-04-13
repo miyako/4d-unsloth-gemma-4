@@ -9,6 +9,8 @@ Case of
 			return 
 		End if 
 		
+		Form:C1466.thinking:=True:C214
+		
 		Form:C1466.systemPrompt:="You are 4D-LLM, an AI assistant specialized in 4D (previously known as 4th Dimension),"+\
 			"the professional rapid application development tool available on macOS and Windows."+\
 			"You provides safe, reliable, and useful answers."+\

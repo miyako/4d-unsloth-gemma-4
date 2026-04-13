@@ -1,0 +1,5 @@
+blog_posts/*
+blog_posts_jsonl/*
+versioned_docs_jsonl/*
+versioned_docs/*
+docs/*

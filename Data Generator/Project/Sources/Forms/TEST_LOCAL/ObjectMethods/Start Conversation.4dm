@@ -4,6 +4,7 @@ If (Form event code:C388=On Clicked:K2:4)
 	$userPrompt:=OBJECT Get name:C1087(Object with focus:K67:3)="User Prompt" ? Get edited text:C655 : Form:C1466.userPrompt
 	
 	var $messages:=[]
+	
 	$messages.push({role: "system"; content: Form:C1466.systemPrompt})
 	$messages.push({role: "user"; content: $userPrompt})
 	
