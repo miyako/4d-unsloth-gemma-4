@@ -155,6 +155,7 @@ What is noteworthy that the 4D coding language has been around for decades, yet,
 ## Datasets
 
 - [Documentation](https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2) 
-- [Blog](https://huggingface.co/datasets/keisuke-miyako/blog-4d-com-2026-0414) 
+- [Blog](https://huggingface.co/datasets/keisuke-miyako/blog-4d-com-2026-0414)
+- [Knowledge Base]()
 
 **LoRA** [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing)
