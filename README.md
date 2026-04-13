@@ -154,7 +154,7 @@ What is noteworthy that the 4D coding language has been around for decades, yet,
 
 ## Training
 
-I created Alpaca datasets using public resources and a **LoRA** [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing) to train Gemma 4 E2B It.
+I created Alpaca datasets using public resources and a **LoRA** [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing) to train a model with **Unsloth**.
 
 |Dataset|GPU (Google Colab)|Duration
 |-|-|-|
