@@ -152,6 +152,10 @@ The result was a terrible hallucination:
 
 What is noteworthy that the 4D coding language has been around for decades, well before the model's knowledge cutoff date. Yet, it has clearly not made a meaningful impact on the models weights related to coding. Our goal is to develop a cutom LoRA adapter that improves the quality of its generated 4D code. 
 
+## Dataset
+
+https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2
+
 ## Google Colab Notebook
 
 https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing
