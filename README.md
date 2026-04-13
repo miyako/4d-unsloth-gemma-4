@@ -152,13 +152,7 @@ The result was a terrible hallucination:
 
 What is noteworthy that the 4D coding language has been around for decades, yet, it has clearly not made a meaningful impact on the models weights related to coding. Simply having more resources on the internet is unlikely to sway how the model thinks. It is essential to develop a cutom LoRA adapter in order to improves the quality of 4D code generation by AI. 
 
-## Dataset
+## Datasets
 
-https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2
-
-## Google Colab Notebook
-
-https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing
-
-> [!TIP]
-> Building the xformers wheel from source can take over an hour because it involves compiling complex CUDA kernels.
+- [Documentation](https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2) [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing)
+- [Blog](https://huggingface.co/datasets/keisuke-miyako/blog-4d-com-2026-0414) [Notebook](https://colab.research.google.com/drive/12ONXdsXvF_a90cO2wIU2Q02MGEBt4dCC?usp=sharing)
