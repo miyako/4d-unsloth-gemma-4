@@ -156,12 +156,20 @@ What is noteworthy that the 4D coding language has been around for decades, yet,
 
 I created Alpaca datasets using public resources and a **LoRA** [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing) to train a model with **Unsloth**.
 
-|Dataset|GPU (Google Colab)|Duration
-|-|-|-|
-|[Documentation](https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2) |`NVIDIA A100-SXM4-40GB`|
-|[Blog](https://huggingface.co/datasets/keisuke-miyako/blog-4d-com-2026-0414)| `NVIDIA A100-SXM4-40GB`|
-|[Knowledge Base]() |`NVIDIA A100-SXM4-40GB`|
+|Dataset|GPU (Google Colab)|Epochs|Duration
+|-|-|-:|-
+|[Documentation](https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2) |`NVIDIA A100-SXM4-40GB`|`1`
+|[Blog](https://huggingface.co/datasets/keisuke-miyako/blog-4d-com-2026-0414)| `NVIDIA A100-SXM4-40GB`|`1`
+|[Knowledge Base]() |`NVIDIA A100-SXM4-40GB`|`1`
 
-
+> [!NOTE]
+> Feeding documentation is only the first step. To really train a model in coding, you need hand-written, curated request and response such as
+> - Write a unit test for this
+> - Refactor this in ORDA
+> - Remove inter-process variables from this
+> - What are the edge cases here?
+> - Add documentation to this
+> - Why does this code not work?
+> An LLM could be used to generate paraphrased variants, but by defintion you can't use an LLM to teach itself something it doesn't know already.
 
 
