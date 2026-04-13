@@ -6,7 +6,7 @@ It costs millions of dollars to train an LLM base model that understands languag
 
 Every LLM has a knowledge cutoff date. Any information made public after that date was not included in its training data. That means the information is not accounted for in the weights of its parameters.
 
-|Model||
+|Model|Cutoff|
 |:-|-:|
 |GPT 5.4 |[August 2025](https://developers.openai.com/api/docs/guides/latest-model)|
 |Gemini 3.1 |[January 2025](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
