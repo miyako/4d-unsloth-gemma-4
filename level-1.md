@@ -1,3 +1,9 @@
+# no fine-tuning
+
+The model is inferring cliché inferences about the 4D language; the code is a mix of 80's style antique programming instructions with a sprincle of OOP.
+
+---
+
 As a 4D-LLM based on the v21 feature set, I can guide you on making HTTP requests within the 4D development environment.
 
 The standard and most reliable method for handling external HTTP communication in 4D is through the **`NetworkModule`** or the dedicated **`HttpRequest`** component.
