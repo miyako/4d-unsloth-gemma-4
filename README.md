@@ -16,7 +16,7 @@ Every LLM has a knowledge cutoff date. Any information made public after that da
 
 Modern LLMs are trained to search the internet for new information if necessary (**tool calling**). Whether a query or instruction triggers a web search depends on how the prompt is engineered and how the model was trained to design a multi-step plan before generating output tokens (**reasoning model**). 
 
-Tool calling allows the LLM to include some new information in its output, but an impromptu web search can only go so far. Simply putting things up on the internet doesn't mean they get caught by an AI. **LLMs are not web crawlers.** Moreover, if a model does not have access to the internet, or decides not to search, it will generate a response based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`. You must **fine-tune** a model by exposing it to additinal minformation.
+Tool calling allows the LLM to include some new information in its output, but an impromptu web search can only go so far. Simply putting things up on the internet doesn't mean they eventually get dicovered by an AI. **LLMs are not web crawlers.** Moreover, if a model does not have access to the internet, or decides not to search, it will generate a response based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`. You must **fine-tune** a model by exposing it to additinal minformation.
 
 ### How can a model be fine-tuned with additional training material?
 
