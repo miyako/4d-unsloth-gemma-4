@@ -2,6 +2,10 @@
 
 The models knows some nerdy details about 4D but its code is still a hallucination.
 
+- The doc has trained the model to include relative URLs.
+- The blog has trained the model to include exposition about feature evolution.
+- The kb does not seem to have made much of a difference.
+
 > **Prompt**: How do I make HTTP requests in 4D?
 
 ---
