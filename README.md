@@ -6,21 +6,21 @@ It costs millions of dollars to train an LLM base model that understands languag
 
 Every LLM has a knowledge cutoff date. Any information made public after that date was not included in its training data. That means the information is not accounted for in the weights of its parameters.
 
-|Model||
+|Model|Cutoff|
 |:-|-:|
 |GPT 5.4 |[August 2025](https://developers.openai.com/api/docs/guides/latest-model)|
 |Gemini 3.1 |[January 2025](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
 |Claude Opus 4.6|[August 2025](https://platform.claude.com/docs/en/about-claude/models/overview)
 
-### How does an LLM learn new information?
+### How does an LLM acquire new information?
 
-Modern LLMs are trained to search the internet for new information if necessary. Whether a prompt triggers a web search depends on how the prompt is engineered and how the model was trained to design a plan before generating its output. 
+Modern LLMs are trained to search the internet for new information if necessary (**tool calling**). Whether a prompt triggers a web search depends on how the prompt is engineered and how the model was trained to design a multi-step plan before generating output tokens (**reasoning model**). 
 
-While tool calling allows the LLM to include new information its output, an impromptu web search can only go so far. Simply putting things up on the internet doesn't replace actual training. If a model does not have access to the internet, it must generate a response solely based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`.
+While tool calling allows the LLM to include new information its output, an impromptu web search can only go so far. Simply putting things up on the internet doesn't mean they get caught by an AI. **LLMs are not web crawlers.** Moreover, if a model does not have access to the internet, or decides not to search, it will generate a response based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`. You must **fine-tune** a model by exposing it to additinal minformation.
 
-### How does an adapter refine an LLM's output?
+### How can a model be fine-tuned with additional training material?
 
-A base model already has good grasp of how language works. There is no need to retrain the model from scratch just to teanch some additional knowledge. Instead, you can create a **LoRA adapter**. An adapter is like a lens that adjusts the the built-in weights of a base model so that tokens become more or less likely to react with each other.
+You can fine-tune a model by creating a **LoRA adapter**. An adapter is like a lens that adjusts the model's built-in weights so that some weights become more or less reactive to each other. Since a base model already has good grasp of how language works and retraining is expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of LLMs might have more exposure to the information during its initial training. In fact, frontier labs have hinted that they will shift their focus from training to inference and fine-tuning.
 
 ### Unsloth
 
@@ -28,7 +28,7 @@ A base model already has good grasp of how language works. There is no need to r
 
 ### Prepare Training Data
 
-Suppose you want to teach an LLM about 4D. You need to design a training course that covers multiple domains:
+Suppose you want to teach an LLM about 4D. You need to design a comprehensive training course that covers multiple domains of the coding experience:
 
 - Completion: finish partial code snippets
 - Instruction: "write a method that does..."
@@ -37,124 +37,47 @@ Suppose you want to teach an LLM about 4D. You need to design a training course 
 - Analysis: "what's wrong with this code"
 - Documentation: insert comments and generate .md files
 
-Before we start, let's establish the baseline. Using Gemma 4, I prompt:
+Before we start training, let's establish the baseline. Using Gemma 4, I prompt: _"How do I make HTTP requests in 4D?"_. The [result](https://github.com/miyako/4d-unsloth-gemma-4/blob/main/level-1.md) was a terrible hallucination.
 
-> How do I make HTTP requests in 4D?
+What is noteworthy that the 4D coding language has been around for decades, yet, it has clearly not made a meaningful impact on the model's weights that are related to coding. Simply adding more resources on the internet is unlikely to sway how the model thinks. It is essential to develop a cutom LoRA adapter in order to improves the quality of 4D code generation by AI. 
 
-The result was a terrible hallucination:
+## Training
 
-> As a 4D-LLM based on the v21 feature set, I can guide you on making HTTP requests within the 4D development environment.
->
-> The standard and most reliable method for handling external HTTP communication in 4D is through the **`NetworkModule`** or the dedicated **`HttpRequest`** component.
+> [!WARNING]
+> If you want to teach an LLM to answer questions and carry out tasks, you should fine-tune an **instruction model**, not a base model. A base model is trained to mimic a pattern and complete text by predicting what comes next. It it not trained to engaged in a conversation. If you fine-tine a base model with a dataset full of tables and lists, the base model will likely output a lot of tables and lists. 
+
+I have created Alpaca datasets using public resources and a **LoRA** [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing) to train [google/gemma-4-E2B-it](https://huggingface.co/google/gemma-4-E2B-it) with **Unsloth**.
+
+|Dataset|GPU (Google Colab)|Epochs|Duration
+|-|-|-:|-
+|[Documentation](https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2) |`NVIDIA A100-SXM4-40GB`|`1`|`2` hours
+|[Blog](https://huggingface.co/datasets/keisuke-miyako/blog-4d-com-2026-0414)| `NVIDIA A100-SXM4-40GB`|`1`
+|[Knowledge Base]() |`NVIDIA A100-SXM4-40GB`|`1`
+
+> [!NOTE]
+> Feeding 4D documentation to the model is only the first step. To actually train a model in coding, **you need carefully edited request and response examples written by an expert** such as:
+> - Write a unit test for this
+> - Refactor this in ORDA
+> - Remove inter-process variables from this
+> - What are the edge cases here?
+> - Add documentation to this
+> - Why does this code not work?
 > 
-> Here is a step-by-step guide on how to implement an HTTP request in 4D:
->
-> ### 1. Initialize the Request Object
->
-> You must first instantiate an `HttpRequest` object. This object will manage all parameters for your request.
-> ```
-> // Initialize the HTTP Request component
-> DECLARE http_request AS HttpRequest;
-> ```
->
-> ### 2. Configure the Request Details
->
-> Use the properties of the `HttpRequest` object to define *what* you are requesting.
->
-> **A. Define the Method (Verb):**
-> Specify the HTTP method you wish to use (e.g., `GET`, `POST`, `PUT`, `DELETE`).
->
-> ```
-> SET http_request.Method = "GET";  // Or "POST", "PUT", etc.
-> ```
->
-> **B. Define the Endpoint (URL):**
->
-> Set the full URL or endpoint you are targeting.
->
-> ```
-> SET http_request.URL = "https://api.example.com/data/resourceID";
-> ```
-> 
-> **C. Define Headers (Optional but Common):**
->
-> If your request requires specific authentication (like API keys or content types), set the headers.
->
-> ```
-> // Add an Authorization header for token-based authentication
-> SET http_request.Headers.Add("Authorization", "Bearer your_secure_token_12345");
-> 
-> // Set the content type for POST/PUT requests
-> SET http_request.Headers.Add("Content-Type", "application/json");
-> ```
->
-> **D. Define the Body (For POST/PUT Requests):**
->
-> If you are sending data to the server (e.g., creating a new record), you must populate the request body. This is typically done by structuring a data payload (like a JSON object) and setting it as the request body.
->
-> ```
-> // Create the JSON payload data structure
-> DECLARE payload AS JSONObject;
-> SET payload.username = "user_4D";
-> SET payload.action = "update_status";
-> 
-> // Set the payload as the request body
-> SET http_request.Body = Serialize(payload);
-> ```
->
-> ### 3. Execute the Request
->
-> Once configured, execute the request using the system's network execution function.
->
-> ```
-> // Execute the request and store the result in a response variable
-> DECLARE response AS HttpResponse;
-> response = NetworkModule.Execute(http_request);
-> ```
->
-> ### 4. Handle the Response
->
-> The `response` variable will contain the result from the server. You must check the status code and retrieve the data.
->
-> **A. Check Status Code:**
->
-> Verify that the request was successful (typically 200-299 range).
->
-> ```
-> IF response.StatusCode >= 200 AND response.StatusCode < 300 THEN
->     // Success path
->     PRINT "Request successful!";
->     
->     // Extract the data payload from the response body
->     DECLARE data_result AS JSONObject;
->     data_result = ParseJSON(response.Body);
->     PRINT "Received Data: " + data_result.message;
-> 
-> ELSE
->     // Error path
->     PRINT "Error: Request failed with status code " + response.StatusCode;
->     PRINT "Error details: " + response.ErrorMessage;
-> END IF;
-> ```
->
-> ### Summary Flowchart
->
-> 1.  **DECLARE** `HttpRequest`
-> 2.  **SET** `Method`, `URL`, and optional `Headers`.
-> 3.  **(IF POST/PUT)** **DECLARE** payload, **SET** payload, **SET** `Body`.
-> 4.  **RESPONSE** = `NetworkModule.Execute(HttpRequest)`
-> 5.  **IF** `RESPONSE.StatusCode` is successful:
-    *   **PARSE** `RESPONSE.Body` into a usable format.
-> 6.  **ELSE** (Error Handling):
-    *   Log the error details.
-> 
-> By following this structure, you ensure that your HTTP interactions within 4D are robust, secure, and fully managed by the `NetworkModule`.
+> An LLM can be used to generate paraphrased variants, but by defintion you can't use an LLM to teach itself something it doesn't know already.
 
-What is noteworthy that the 4D coding language has been around for decades, yet, it has clearly not made a meaningful impact on the models weights related to coding. Simply having more resources on the internet is unlikely to sway how the model thinks. It is essential to develop a cutom LoRA adapter in order to improves the quality of 4D code generation by AI. 
+> [!WARNING]
+> Additional training by itself does not guarantee improvement. It is possible to poison a model's weights by feeding it bad data. The media often portrays AI like a magical tool that can do just about anything. That is absolutely **not** how an LLM works. Machine learning is mathematical pattern recognition. Frontier labs have done the hard work of training base models using a colossal amount of cultural content created and classified by actual people. Fine-tuning is less costly, but still requires careful guidance and attention by a qualified supervisor.
+ 
+```
+==((====))==  Unsloth - 2x faster free finetuning | Num GPUs used = 1
+   \\   /|    Num examples = 29,249 | Num Epochs = 1 | Total steps = 3,657
+O^O/ \_/ \    Batch size per device = 2 | Gradient accumulation steps = 4
+\        /    Data Parallel GPUs = 1 | Total batch size (2 x 4 x 1) = 8
+ "-____-"     Trainable parameters = 31,039,488 of 5,154,217,504 (0.60% trained)
+```
 
-## Datasets
+> [!TIP]
+> You can merge a LoRA adapter with a GGUF model. To track progess, you might want to verify fine-tuned models each step of the way and publish them as transitional checkpoints.
 
-- [Documentation](https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2) 
-- [Blog](https://huggingface.co/datasets/keisuke-miyako/blog-4d-com-2026-0414) 
 
-**LoRA** [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing)
+
