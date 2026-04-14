@@ -28,7 +28,7 @@ You can fine-tune a model by creating a **LoRA adapter**. An adapter is like a l
 
 ### Prepare Training Data
 
-Suppose you want to teach an LLM about 4D. You need to design a training course that covers multiple domains:
+Suppose you want to teach an LLM about 4D. You need to design a comprehensive training course that covers multiple domains of the coding experience:
 
 - Completion: finish partial code snippets
 - Instruction: "write a method that does..."
