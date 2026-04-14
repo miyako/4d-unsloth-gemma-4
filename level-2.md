@@ -1,6 +1,6 @@
 # doc+kb+blog
 
-The models knows some nerdy details about 4D but its code is still a hallucination.
+The models knows some nerdy details about 4D but the code is just hallucination.
 
 - The doc has trained the model to include relative URLs.
 - The blog has trained the model to include exposition about feature evolution.
