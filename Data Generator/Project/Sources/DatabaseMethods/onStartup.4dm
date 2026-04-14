@@ -25,10 +25,15 @@ var $folder : 4D:C1709.Folder
 var $path; $mmproj; $cache_type_k; $cache_type_v : Text
 var $n_gpu_layers; $threads; $batches; $ubatch_size; $batch_size; $max_position_embeddings : Integer
 
-$folder:=$homeFolder.folder("gemma-4-E2B-blog")
+$folder:=$homeFolder.folder("gemma-4-E2B-4d")
 $path:="gemma-4-E2B-it.Q4_K_M.gguf"
 $mmproj:="mmproj-F16.gguf"
-$URL:="keisuke-miyako/gemma-4-E2B-it-gguf-blog"
+$URL:="keisuke-miyako/gemma-4-E2B-it-gguf-blog-doc-kb"
+
+//$folder:=$homeFolder.folder("gemma-4-E2B-blog")
+//$path:="gemma-4-E2B-it.Q4_K_M.gguf"
+//$mmproj:="mmproj-F16.gguf"
+//$URL:="keisuke-miyako/gemma-4-E2B-it-gguf-blog"
 
 //$folder:=$homeFolder.folder("gemma-4-E2B")
 //$path:="gemma-4-E2B-it-Q4_K_M.gguf"
