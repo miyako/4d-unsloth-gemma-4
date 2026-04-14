@@ -20,7 +20,7 @@ Tool calling allows the LLM to include some new information in its output, but a
 
 ### How can a model be fine-tuned with additional training material?
 
-You can fine-tune a model by creating a **LoRA adapter**. An adapter is like a lens that adjusts the model's parameters so that weights become more reactive to prompts. Since a base model already has good grasp of how language works and retraining is expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of LLMs might have more exposure to the information during its initial training. In fact, frontier labs have hinted that they will shift their focus from training to inference and fine-tuning.
+You can fine-tune a model by creating a **LoRA adapter**. An adapter is like a lens that adjusts the model's parameters so that weights become more reactive to prompts. Since a base model already has a good grasp of how language works and retraining is incredibly expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of LLMs might learn from it in training. In fact, frontier labs are all hinting that they will shift their focus from training to inference and fine-tuning.
 
 ### Unsloth
 
