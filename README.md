@@ -2,7 +2,7 @@
 
 ### What does an LLM know?
 
-It costs millions of dollars to train an LLM base model that understands language. "Understand" in this context means that its weights are parameterised to meaningfully predict the next probable token when matrix multiplied using **Transformer** or other kind of vector maths. "Token" in this context are small chunks of digital data, like puzzle pieces the may or may not fit together. "Language" in this context means a collection of tokens that follow an interesting pattern we call meaning. It is not limit to text; sound is audio-language, vision is video-language. 
+It costs millions of dollars to train an LLM base model that understands language. "Understand" in this context means that its weights are parameterised to meaningfully predict the next probable token when matrix multiplied using **Transformer** or other kinds of vector maths. "Token" in this context are small chunks of digital data, like puzzle pieces the may or may not fit together. "Language" in this context means a collection of tokens that follow an interesting pattern we call meaning. It is not limit to text; sound is audio-language, vision is video-language. 
 
 Every LLM has a knowledge cutoff date. Any information made public after that date was not included in its training data. That means the information is not accounted for in the weights of its parameters.
 
