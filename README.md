@@ -12,15 +12,15 @@ Every LLM has a knowledge cutoff date. Any information made public after that da
 |Gemini 3.1 |[January 2025](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
 |Claude Opus 4.6|[August 2025](https://platform.claude.com/docs/en/about-claude/models/overview)
 
-### How does an LLM learn new information?
+### How does an LLM acquire new information?
 
-Modern LLMs are trained to search the internet for new information if necessary. Whether a prompt triggers a web search depends on how the prompt is engineered and how the model was trained to design a plan before generating its output. 
+Modern LLMs are trained to search the internet for new information if necessary (**tool calling**). Whether a prompt triggers a web search depends on how the prompt is engineered and how the model was trained to design a multi-step plan before generating output tokens (**reasoning model**). 
 
-While tool calling allows the LLM to include new information its output, an impromptu web search can only go so far. Simply putting things up on the internet doesn't replace actual training. If a model does not have access to the internet, it must generate a response solely based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`.
+While tool calling allows the LLM to include new information its output, an impromptu web search can only go so far. Simply putting things up on the internet doesn't mean they get caught by an AI. **LLMs are not web crawlers.** Moreover, if a model does not have access to the internet, or decides not to search, it will generate a response based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`. You must **fine-tune** a model by exposing it to additinal minformation.
 
-### What is a LoRA adapter?
+### How can a model be fine-tuned with new knowledge?
 
-A **LoRA adapter** is like a lens that adjusts the model's built-in weights so that some weights become more or less reactive to each other. Since a base model already has good grasp of how language works and retraining is expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of LLMs might have more exposure to the information during its initial training. In fact, frontier labs have hinted that they will shift their focus from training to inference and fine-tuning.
+You can fine-tune a model by creating a **LoRA adapter**. An adapter is like a lens that adjusts the model's built-in weights so that some weights become more or less reactive to each other. Since a base model already has good grasp of how language works and retraining is expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of LLMs might have more exposure to the information during its initial training. In fact, frontier labs have hinted that they will shift their focus from training to inference and fine-tuning.
 
 ### Unsloth
 
