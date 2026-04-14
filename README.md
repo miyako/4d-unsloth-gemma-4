@@ -63,7 +63,7 @@ I have created Alpaca datasets using public resources and a **LoRA** [Notebook](
 > - Add documentation to this
 > - Why does this code not work?
 > 
-> An LLM can be used to generate paraphrased variants, or randomly damage good code, but by definition you can't use an LLM to teach itself something it doesn't know already.
+> An LLM can be used to generate paraphrased variants, or randomly damage good code, but by definition you can't use an LLM to teach itself something it doesn't know.
 
 > [!WARNING]
 > Additional training does not necessarily result in improvement. It is perfectly possible to poison a model's weights by feeding it bad data. Machine learning is mathematical pattern recognition. Frontier labs have done the hard work of training base models using a colossal amount of cultural content created and classified by actual people. Fine-tuning is less costly, but still requires careful guidance and attention by a qualified supervisor.
