@@ -5,3 +5,4 @@ versioned_docs/*
 docs/*
 kb_assets_jsonl/*
 kb_assets/*
+bin/*
