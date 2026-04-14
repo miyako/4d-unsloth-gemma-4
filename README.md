@@ -44,7 +44,7 @@ What is noteworthy that the 4D coding language has been around for decades, yet,
 ## Training
 
 > [!WARNING]
-> If you want to teach an LLM to answer questions and carry out tasks, you should fine-tune an **instruction model**, not a base model. A base model is trained to mimic a pattern and predict what comes next. It it not trained to engaged in a conversation. If you fine-tine a base model with a dataset full of tables and lists, the base model will likely output a lot of tables and lists. 
+> If you want to teach an LLM to answer questions and carry out tasks, you should fine-tune an **instruction model**, not a base model. A base model is trained to mimic a pattern and predict what comes next. It it not trained to engaged in a conversation. If you fine-tine a base model with a dataset full of tables and lists, the base model will likely go overboard and output a lot of similar looking tables and lists. 
 
 I have created Alpaca datasets using public resources and a **LoRA** [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing) to train [google/gemma-4-E2B-it](https://huggingface.co/google/gemma-4-E2B-it) with **Unsloth**.
 
