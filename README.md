@@ -66,7 +66,7 @@ I have created Alpaca datasets using public resources and a **LoRA** [Notebook](
 > An LLM can be used to generate paraphrased variants, but by defintion you can't use an LLM to teach itself something it doesn't know already.
 
 > [!WARNING]
-> Additional training by itself does not guarantee improvement. It is possible to poison a model's weights by feeding it bad data. The media often portrays AI like a magical tool that can do just about anything. That is absolutely **not** how an LLM works. Machine learning is mathematical pattern recognition. Frontier labs have done the hard work of training base models using a colossal amount of cultural content created and classified by actual people. Fine-tuning is less costly, but still requires careful attention in order to gain better intelligence.
+> Additional training by itself does not guarantee improvement. It is possible to poison a model's weights by feeding it bad data. The media often portrays AI like a magical tool that can do just about anything. That is absolutely **not** how an LLM works. Machine learning is mathematical pattern recognition. Frontier labs have done the hard work of training base models using a colossal amount of cultural content created and classified by actual people. Fine-tuning is less costly, but still requires careful guidance and attention by a qualified supervisor.
  
 ```
 ==((====))==  Unsloth - 2x faster free finetuning | Num GPUs used = 1
