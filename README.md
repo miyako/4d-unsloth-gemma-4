@@ -158,7 +158,7 @@ I created Alpaca datasets using public resources and a **LoRA** [Notebook](https
 
 |Dataset|GPU (Google Colab)|Epochs|Duration
 |-|-|-:|-
-|[Documentation](https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2) |`NVIDIA A100-SXM4-40GB`|`1`
+|[Documentation](https://huggingface.co/datasets/keisuke-miyako/developer-4d-com-21r2) |`NVIDIA A100-SXM4-40GB`|`1`|`2` hours
 |[Blog](https://huggingface.co/datasets/keisuke-miyako/blog-4d-com-2026-0414)| `NVIDIA A100-SXM4-40GB`|`1`
 |[Knowledge Base]() |`NVIDIA A100-SXM4-40GB`|`1`
 
