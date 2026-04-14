@@ -3,3 +3,5 @@ blog_posts_jsonl/*
 versioned_docs_jsonl/*
 versioned_docs/*
 docs/*
+kb_assets_jsonl/*
+kb_assets/*

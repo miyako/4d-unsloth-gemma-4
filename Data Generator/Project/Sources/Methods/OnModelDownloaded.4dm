@@ -35,3 +35,5 @@ End if
 
 Extract SET OPTION(Extract Option Tokenizer File; $file)
 ALERT:C41("Tokenizer loaded!")
+
+TEST_Gemma

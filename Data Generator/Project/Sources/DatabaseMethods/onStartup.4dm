@@ -25,12 +25,18 @@ var $folder : 4D:C1709.Folder
 var $path; $mmproj; $cache_type_k; $cache_type_v : Text
 var $n_gpu_layers; $threads; $batches; $ubatch_size; $batch_size; $max_position_embeddings : Integer
 
-$folder:=$homeFolder.folder("gemma-4-E2B")
-$path:="gemma-4-E2B-it-Q4_K_M.gguf"
+$folder:=$homeFolder.folder("gemma-4-E2B-blog")
+$path:="gemma-4-E2B-it.Q4_K_M.gguf"
 $mmproj:="mmproj-F16.gguf"
-$URL:="unsloth/gemma-4-E2B-it-GGUF"
-$cache_type_k:="q4_0"
-$cache_type_v:="q4_0"
+$URL:="keisuke-miyako/gemma-4-E2B-it-gguf-blog"
+
+//$folder:=$homeFolder.folder("gemma-4-E2B")
+//$path:="gemma-4-E2B-it-Q4_K_M.gguf"
+//$mmproj:="mmproj-F16.gguf"
+//$URL:="unsloth/gemma-4-E2B-it-GGUF"
+
+$cache_type_k:="f16"
+$cache_type_v:="f16"
 $n_gpu_layers:=99
 $threads:=6
 $batches:=1
@@ -65,8 +71,8 @@ temp: 1; \
 min_p: 0; \
 top_k: 64; \
 top_p: 0.95; \
-repeat_penalty: 1; \
-presence_penalty: 0; \
+repeat_penalty: 1.15; \
+presence_penalty: 0.1; \
 mmproj: $folder.file($mmproj); \
 n_gpu_layers: $n_gpu_layers; \
 log_disable: False:C215; \
