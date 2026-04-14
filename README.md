@@ -18,7 +18,7 @@ Modern LLMs are trained to search the internet for new information if necessary 
 
 While tool calling allows the LLM to include new information its output, an impromptu web search can only go so far. Simply putting things up on the internet doesn't mean they get caught by an AI. **LLMs are not web crawlers.** Moreover, if a model does not have access to the internet, or decides not to search, it will generate a response based on its trained parameters and sampling hyper-parameters such as `top-k` `top-p` `min-p` and `temperature`. You must **fine-tune** a model by exposing it to additinal minformation.
 
-### How can a model be fine-tuned with new knowledge?
+### How can a model be fine-tuned with additional training material?
 
 You can fine-tune a model by creating a **LoRA adapter**. An adapter is like a lens that adjusts the model's built-in weights so that some weights become more or less reactive to each other. Since a base model already has good grasp of how language works and retraining is expensive, it is more efficient to invest in a domain specific adapter than to generate online content in the hopes that the next generation of LLMs might have more exposure to the information during its initial training. In fact, frontier labs have hinted that they will shift their focus from training to inference and fine-tuning.
 
