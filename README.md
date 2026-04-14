@@ -155,7 +155,7 @@ What is noteworthy that the 4D coding language has been around for decades, yet,
 ## Training
 
 > [!WARNING]
-> You should fine-tuned an **instruction model**, not a base model. A base model is trained to complete text by predicting what comes next. It it not trained to engaged in a conversation.
+> You should fine-tune an **instruction model**, not a base model. A base model is trained to complete text by predicting what comes next. It it not trained to engaged in a conversation.
 
 I created Alpaca datasets using public resources and a **LoRA** [Notebook](https://colab.research.google.com/drive/1YkFF2n3hbxi5Sk4tLL7nV9fOURhA6kV5?usp=sharing) to train a model with **Unsloth**.
 
