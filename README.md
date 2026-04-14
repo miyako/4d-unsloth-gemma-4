@@ -37,7 +37,7 @@ Suppose you want to teach an LLM about 4D. You need to design a comprehensive tr
 - Analysis: "what's wrong with this code"
 - Documentation: insert comments and generate .md files
 
-Before we start, let's establish the baseline. 
+Before we start training, let's establish the baseline. 
 
 Using Gemma 4, I prompt: "How do I make HTTP requests in 4D?"
 
