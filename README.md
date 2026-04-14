@@ -39,7 +39,7 @@ Suppose you want to teach an LLM about 4D. You need to design a comprehensive tr
 
 Before we start training, let's establish the baseline. Using Gemma 4, I prompt: _"How do I make HTTP requests in 4D?"_. The [result](https://github.com/miyako/4d-unsloth-gemma-4/blob/main/level-1.md) was a terrible hallucination.
 
-What is noteworthy that the 4D coding language has been around for decades, yet, it has clearly not made a meaningful impact on the model's weights related to coding. Simply adding more resources on the internet is unlikely to sway how the model thinks. It is essential to develop a cutom LoRA adapter in order to improves the quality of 4D code generation by AI. 
+What is noteworthy that the 4D coding language has been around for decades, yet, it has clearly not made a meaningful impact on the model's weights that are related to coding. Simply adding more resources on the internet is unlikely to sway how the model thinks. It is essential to develop a cutom LoRA adapter in order to improves the quality of 4D code generation by AI. 
 
 ## Training
 
