@@ -7,6 +7,7 @@ property _onResponse : 4D:C1709.Function
 property stream : Boolean
 property reasoning_content : Text
 property apiKey : Text
+property provider : Text
 
 Class constructor($provider : Text; $model : Text)
 	
@@ -15,8 +16,9 @@ Class constructor($provider : Text; $model : Text)
 	var $baseURL; $apiKey : Text
 	$baseURL:=$OpenAI.endpoint
 	$apiKey:=$OpenAI.getAccessToken($provider)
-	This:C1470.stream:=True:C214
+	This:C1470.stream:=False:C215
 	This:C1470.model:=$model
+	This:C1470.provider:=$provider
 	This:C1470.OpenAI:=cs:C1710.AIKit.OpenAI.new({baseURL: $baseURL; apiKey: $apiKey})
 	This:C1470.preemptive:=Process info:C1843(Current process:C322).preemptive
 	
@@ -43,6 +45,30 @@ Function continueConversation($messages : Collection) : cs:C1710.AIKit.OpenAICha
 	$ChatCompletionsParameters.model:=This:C1470.model
 	$ChatCompletionsParameters.stream:=This:C1470.stream
 	$ChatCompletionsParameters.formula:=This:C1470.onEventStream
+	
+	var $response_format:={type: "json_schema"; json_schema: {}}
+	$response_format.json_schema:={}
+	$response_format.json_schema.name:="ChatML"
+	$response_format.json_schema.strict:=True:C214
+	$response_format.json_schema.schema:={}
+	$response_format.json_schema.schema.type:="object"
+	$response_format.json_schema.schema.properties:={}
+	$response_format.json_schema.schema.required:=["messages"]
+	$response_format.json_schema.schema.additionalProperties:=False:C215
+	$response_format.json_schema.schema.properties.messages:={}
+	$response_format.json_schema.schema.properties.messages.type:="array"
+	$response_format.json_schema.schema.properties.messages.items:={}
+	$response_format.json_schema.schema.properties.messages.items.type:="object"
+	$response_format.json_schema.schema.properties.messages.items.properties:={}
+	$response_format.json_schema.schema.properties.messages.items.required:=["role"; "content"]
+	$response_format.json_schema.schema.properties.messages.items.additionalProperties:=False:C215
+	$response_format.json_schema.schema.properties.messages.items.properties.role:={type: "string"}
+	$response_format.json_schema.schema.properties.messages.items.properties.content:={type: "string"}
+	$ChatCompletionsParameters.response_format:=$response_format
+	
+	If (This:C1470.provider="Cohere")
+		OB REMOVE:C1226($ChatCompletionsParameters; "n")
+	End if 
 	
 	var $ChatCompletionsResult : cs:C1710.AIKit.OpenAIChatCompletionsResult
 	$ChatCompletionsResult:=This:C1470.OpenAI.chat.completions.create(This:C1470.messages; $ChatCompletionsParameters)
