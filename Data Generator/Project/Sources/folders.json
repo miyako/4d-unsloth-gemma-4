@@ -17,5 +17,17 @@
 			"LoRA_doc"
 		]
 	},
+	"Shelved": {
+		"methods": [
+			"data_critique_1",
+			"data_critique_2",
+			"data_diagnosis_1",
+			"data_diagnosis_2",
+			"data_generate_1",
+			"data_generate_2",
+			"data_yesno_1",
+			"data_yesno_2"
+		]
+	},
 	"trash": {}
 }
