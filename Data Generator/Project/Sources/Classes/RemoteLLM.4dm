@@ -7,6 +7,7 @@ Class constructor($provider : Text)
 		Azure: "https://4d.openai.azure.com/openai/v1"; \
 		Claude: "https://api.anthropic.com/v1"; \
 		Cohere: "https://api.cohere.ai/compatibility/v1"; \
+		CometAPI: "https://api.cometapi.com/v1"; \
 		DeepInfra: "https://api.deepinfra.com/v1/openai"; \
 		DeepSeek: "https://api.deepseek.com/v1"; \
 		FireWorks: "https://api.fireworks.ai/inference/v1/"; \
