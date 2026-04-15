@@ -25,6 +25,7 @@ For each ($file; $folder.files(fk ignore invisible:K87:22 | fk recursive:K87:7).
 			$content:=Substring:C12($body; $pos{1}+$len{1}+1)
 			//PRODUCT: 4D | VERSION: 21 | PLATFORM: Mac & Win\nPublished On: March 26, 2026\nWhen unauthenticated HTTP requests hit the 4D built-in REST server, the Administration window can quickly become overwhelmed by hundreds of "REST Direct Access" entries with no associated users\nRestart the 4D Server to clear all existing REST Direct Access sessions immediately.\nTo stop new sessions from being created, set $0 := False in the On REST Authentication database method or add a proper authentication :\n#DECLARE\n(\n$url\n:\nText\n;\n$header\n:\nText\n;\n$ipB\n:\nText\n;\n$ipS\n:\nText\n; \\\n$user\n:\nText\n;\n$pw\n:\nText\n)->\n$accept\n:\nBoolean\nIf\n(your logic : check header, token, IP, etc ...)\n$accept\n:=\nTrue\nElse\n$accept\n:=\nFalse\nEnd if\nEnsure client applications reuse the WASID4D cookie, details are in\nhttps://blog.4d.com/a-better-understanding-of-4d-rest-sessions/\n. If REST is not required, disable global exposure in Database Settings > Web > Web Features and uncheck “Expose as REST resource” on every table in the Structure Editor.\nTo enhance overall firewall security, permit HTTP traffic only from trusted IPs instead of leaving it open to the world.
 			If (Match regex:C1019("PRODUCT: (.+) \\| VERSION: (\\S+) \\| .+"; $content; 1; $pos; $len))
+				var $product : Text
 				$product:=Substring:C12($content; $pos{1}; $len{1})
 				If ($product#"4D@")
 					continue
@@ -37,12 +38,14 @@ For each ($file; $folder.files(fk ignore invisible:K87:22 | fk recursive:K87:7).
 					var $tempFile : 4D:C1709.File
 					$tempFile:=Folder:C1567(Temporary folder:C486; fk platform path:K87:2).file("temp.txt")
 					$tempFile.setText($content)
+					var $task : Object
 					$task:={file: $tempFile; \
 						text_as_tokens: False:C215; \
 						tokens_length: 1500; \
 						overlap_ratio: 0.09; \
 						unique_values_only: True:C214; \
 						pooling_mode: Extract Pooling Mode Mean}
+					var $extracted : Object
 					$extracted:=Extract(Extract Document TXT; Extract Output Collection; $task)
 					If ($extracted.success)
 						var $input : Text

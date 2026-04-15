@@ -14,12 +14,14 @@ For each ($folder; $folders)
 	var $version : Text
 	$version:="4D "+Replace string:C233($folder.name; "-"; " "; *)
 	For each ($file; $folder.files(fk ignore invisible:K87:22 | fk recursive:K87:7).query("extension == :1"; ".md"))
+		var $task : Object
 		$task:={file: $file; \
 			text_as_tokens: False:C215; \
 			tokens_length: 1500; \
 			overlap_ratio: 0; \
 			unique_values_only: True:C214; \
 			pooling_mode: Extract Pooling Mode Mean}
+		var $extracted : Object
 		$extracted:=Extract(Extract Document MD; Extract Output Collection; $task)
 		If ($extracted.success)
 			var $input : Text

@@ -6,3 +6,9 @@ docs/*
 kb_assets_jsonl/*
 kb_assets/*
 bin/MacOS/*
+notes/*
+notes_jsonl/*
+projects/*
+snippets_jsonl/*
+snippets/*
+Data Generator/secrets/*
