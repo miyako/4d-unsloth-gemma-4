@@ -23,8 +23,12 @@
 			"data_critique_2",
 			"data_diagnosis_1",
 			"data_diagnosis_2",
+			"data_edge_1",
+			"data_edge_2",
 			"data_generate_1",
 			"data_generate_2",
+			"data_rewrite_1",
+			"data_rewrite_2",
 			"data_yesno_1",
 			"data_yesno_2"
 		]

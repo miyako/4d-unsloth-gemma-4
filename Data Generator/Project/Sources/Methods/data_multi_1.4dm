@@ -14,7 +14,8 @@ If (Count parameters:C259=0)
 Else 
 	
 	var $agent : cs:C1710._AgentRemote
-	$agent:=cs:C1710._AgentRemote.new("Cohere"; "command-a-03-2025")
+	//$agent:=cs._AgentRemote.new("Cohere"; "command-a-03-2025")
+	$agent:=cs:C1710._AgentRemote.new("xAI"; "grok-4-1-fast-reasoning")
 	
 	var $folder : 4D:C1709.Folder
 	$folder:=Folder:C1567(fk data folder:K87:12).folder("prompts/"+$id+"/")
