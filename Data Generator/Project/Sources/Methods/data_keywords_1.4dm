@@ -14,7 +14,9 @@ If (Count parameters:C259=0)
 Else 
 	
 	var $agent : cs:C1710._AgentRemote
-	$agent:=cs:C1710._AgentRemote.new("Claude"; "claude-haiku-4-5")
+	//$agent:=cs._AgentRemote.new("Claude"; "claude-haiku-4-5")
+	//$agent:=cs._AgentRemote.new("OpenAI"; "gpt-5-mini")
+	$agent:=cs:C1710._AgentRemote.new("xAI"; "grok-4-1-fast-reasoning")
 	
 	var $folder : 4D:C1709.Folder
 	$folder:=Folder:C1567(fk data folder:K87:12).folder("prompts/"+$id+"/")
@@ -49,6 +51,6 @@ Else
 	$messages.push({role: "system"; content: $systemPrompt})
 	$messages.push({role: "user"; content: $userPrompt})
 	
-	$agent.startConversation($messages; Formula:C1597(data_generate_2))
+	$agent.startConversation($messages; Formula:C1597(data_keywords_2))
 	
 End if 

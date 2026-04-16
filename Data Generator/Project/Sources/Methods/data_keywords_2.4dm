@@ -29,9 +29,9 @@ If ($results#Null:C1517)
 End if 
 
 /*
-This request would exceed your organization's rate limit of 10,000 input tokens per minute 
+This request would exceed your organization's rate limit of 10,000 input tokens per minute
 */
 
 DELAY PROCESS:C323(Current process:C322; 60*60*2)
 
-data_generate_1
+data_keywords_1
