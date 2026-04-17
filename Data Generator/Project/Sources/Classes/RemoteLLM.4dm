@@ -4,7 +4,7 @@ property endpoint : Text
 Class constructor($provider : Text)
 	
 	This:C1470._endpoints:={\
-		Azure: "https://4d.openai.azure.com/openai/v1"; \
+		Azure_xAI: "https://keisukemiyako-grok-resource.openai.azure.com/openai/v1/"; \
 		Claude: "https://api.anthropic.com/v1"; \
 		Cohere: "https://api.cohere.ai/compatibility/v1"; \
 		CometAPI: "https://api.cometapi.com/v1"; \
