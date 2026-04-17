@@ -9,14 +9,15 @@ $out.create()
 var $folders : Collection
 var $folder; $snippet : 4D:C1709.Folder
 var $file : 4D:C1709.File
-$folder:=$root.folder("snippets")
+$folder:=Folder:C1567(fk data folder:K87:12).folder("examples/snippets")
 var $version : Text
-For each ($snippet; $folder.folders())
+For each ($snippet; $folder.files().query("extension == :1"; ".txt"))
 	
-	var $code_4d; $code_py; $code_in : Text
-	$code_4d:=$snippet.file($snippet.name+".4dm").getText()
-	$code_py:=$snippet.file($snippet.name+".py").getText()
-	$code_in:=$snippet.file($snippet.name+".txt").getText()
+	var $code_4d; $code_py; $code_js; $code_in : Text
+	$code_4d:=$folder.file($snippet.name+".4dm").getText()
+	$code_py:=$folder.file($snippet.name+".py").getText()
+	$code_js:=$folder.file($snippet.name+".js").getText()
+	$code_in:=$folder.file($snippet.name+".txt").getText()
 	
 	var $jsonl : Object
 	$jsonl:={}
@@ -36,11 +37,8 @@ For each ($snippet; $folder.folders())
 	$out.file(String:C10($i; "000000")+".jsonl").setText(JSON Stringify:C1217($jsonl; *))
 	
 	$jsonl:={}
-	$jsonl.instruction:="Convert this 4D code to python"
-	$jsonl.input:=$code_4d
-	$jsonl.output:=$code_py
-	
-	$i+=1
-	$out.file(String:C10($i; "000000")+".jsonl").setText(JSON Stringify:C1217($jsonl; *))
+	$jsonl.instruction:="Convert this javascript code to 4D"
+	$jsonl.input:=$code_js
+	$jsonl.output:=$code_4d
 	
 End for each 
