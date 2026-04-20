@@ -97,11 +97,23 @@
 					"dataSourceTypeHint": "object",
 					"dataSource": "Form:C1466.prompt",
 					"method": "ObjectMethods/Prompt.4dm"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Button",
+					"top": 43,
+					"left": 441,
+					"width": 161,
+					"height": 59,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button.4dm"
 				}
 			}
 		}
 	],
-	"geometryStamp": 342,
+	"geometryStamp": 344,
 	"menuBar": "Barre #1",
 	"method": "method.4dm",
 	"editor": {

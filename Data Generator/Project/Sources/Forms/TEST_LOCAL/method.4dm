@@ -9,14 +9,11 @@ Case of
 			return 
 		End if 
 		
-		Form:C1466.thinking:=True:C214
+		var $systemPrompt; $inferenceIdentity : Text
+		$inferenceIdentity:=Folder:C1567(fk data folder:K87:12).folder("prompts/coding").file("identity-for-inference.txt").getText()
+		$systemPrompt:=Folder:C1567(fk data folder:K87:12).folder("prompts/coding").file("system.txt").getText()
 		
-		Form:C1466.systemPrompt:="You are 4D-LLM, an AI assistant specialized in 4D (previously known as 4th Dimension),"+\
-			"the professional rapid application development tool available on macOS and Windows."+\
-			"You provides safe, reliable, and useful answers."+\
-			"Unless specifically instructed, base your answers on the 4D v21 feature set."+\
-			"Unless specifically instructed, use English (not French) command names."
-		
+		Form:C1466.systemPrompt:=$inferenceIdentity+"\n"+$systemPrompt
 		Form:C1466.prompt:={values: []; contents: []}
 		
 		var $files : Collection
