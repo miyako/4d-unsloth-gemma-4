@@ -14,25 +14,28 @@
 	},
 	"LoRA": {
 		"methods": [
-			"LoRA_doc"
+			"LoRA_4dm",
+			"LoRA_blog",
+			"LoRA_doc",
+			"LoRA_kb",
+			"LoRA_lang",
+			"LoRA_notes"
+		]
+	},
+	"part 2": {
+		"methods": [
+			"data_blog_1",
+			"data_blog_2"
 		]
 	},
 	"Shelved": {
 		"methods": [
 			"data_critique_1",
 			"data_critique_2",
-			"data_diagnosis_1",
-			"data_diagnosis_2",
-			"data_edge_1",
-			"data_edge_2",
-			"data_keywords_1",
-			"data_keywords_2",
-			"data_multi_1",
-			"data_multi_2",
-			"data_rewrite_1",
-			"data_rewrite_2",
-			"data_yesno_1",
-			"data_yesno_2"
+			"data_database_1",
+			"data_database_2",
+			"data_example_1",
+			"data_example_2"
 		]
 	},
 	"trash": {}
