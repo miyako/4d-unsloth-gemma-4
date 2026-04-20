@@ -14,3 +14,9 @@ snippets/*
 Data Generator/secrets/*
 chatml_jsonl/*
 chatml_catalog_jsonl/*
+text/versioned_docs_jsonl/*
+text/kb_assets_jsonl/*
+chatml_blog_jsonl/*
+errors/*
+text/*
+Data Generator/Project/Sources/Methods/github_generate_project_map.4dm
