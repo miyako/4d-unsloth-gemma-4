@@ -15,7 +15,8 @@ Else
 	
 	var $agent : cs:C1710._AgentRemote
 	//$agent:=cs._AgentRemote.new("xAI"; "grok-4-1-fast-reasoning")
-	$agent:=cs:C1710._AgentRemote.new("Claude"; "claude-opus-4-7")
+	//$agent:=cs._AgentRemote.new("Claude"; "claude-opus-4-7")
+	$agent:=cs:C1710._AgentRemote.new("Azure_xAI"; "grok-4-20-reasoning")
 	
 	var $folder : 4D:C1709.Folder
 	$folder:=Folder:C1567(fk data folder:K87:12).folder("prompts/"+$id+"/")
@@ -30,6 +31,7 @@ Else
 	var $file : 4D:C1709.File
 	var $examples : Text
 	For each ($file; $files)
+		var $json : Object
 		$json:=JSON Parse:C1218($file.getText(); Is object:K8:27)
 		var $message : Object
 		For each ($message; $json.messages.query("role == :1"; "user"))

@@ -1,27 +1,30 @@
 //%attributes = {"invisible":true}
 #DECLARE($params : Object)
 
+var $id:="snippets"
+
 If (Count parameters:C259=0)
 	
-	CALL WORKER:C1389(1; Current method name:C684; {})
+	CALL WORKER:C1389(Current method name:C684; Current method name:C684; {})
 	
 Else 
 	
-	var $agent : cs:C1710._AgentRemote
-	$agent:=cs:C1710._AgentRemote.new("OpenAI"; "gpt-5-mini")
+	var $agent : cs:C1710._AgentRemotev2
+	//$agent:=cs._AgentRemote.new("OpenAI"; "gpt-5-mini")
+	//$agent:=cs._AgentRemote.new("Claude"; "claude-haiku-4-5")
+	//$agent:=cs._AgentRemotev2.new("xAI"; "grok-4.20-0309-reasoning")
+	$agent:=cs:C1710._AgentRemotev2.new("Azure_xAI"; "grok-4-20-reasoning")
 	
 	var $folder : 4D:C1709.Folder
-	$folder:=Folder:C1567(fk data folder:K87:12).folder("prompts/generate code/")
+	$folder:=Folder:C1567(fk data folder:K87:12).folder("prompts/"+$id+"/")
 	
 	var $systemPrompt; $userPrompt : Text
 	$systemPrompt:=$folder.file("system.txt").getText()
+	$userPrompt:=$folder.file("user.txt").getText()
 	
-	var $n : Integer
-	$n:=3
-	$userPrompt:="Generate "+String:C10($n)+" cases."
-	
+	$folder:=Folder:C1567(fk data folder:K87:12).folder("examples/"+$id)
 	var $files : Collection
-	$files:=Folder:C1567(fk data folder:K87:12).folder("examples").files(fk recursive:K87:7).query("extension == :1"; ".txt")
+	$files:=$folder.files(fk recursive:K87:7).query("extension == :1"; ".txt")
 	var $file : 4D:C1709.File
 	var $examples : Text
 	For each ($file; $files)
