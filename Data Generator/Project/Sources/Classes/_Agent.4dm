@@ -10,6 +10,7 @@ property messages : Collection
 property _onResponse : 4D:C1709.Function
 property stream : Boolean
 property reasoning_content : Text
+property thoughts : Text
 
 Class constructor($baseURL : Text; \
 $resultObjectName : Text; \
@@ -37,6 +38,7 @@ Function clearConversation() : cs:C1710._Agent
 	
 	This:C1470.ChatResult:=""
 	This:C1470.reasoning_content:=""
+	This:C1470.thoughts:=""
 	This:C1470.messages:=[]
 	
 	If (Not:C34(This:C1470.preemptive))
@@ -66,6 +68,7 @@ Function continueConversation($messages : Collection) : cs:C1710.AIKit.OpenAICha
 	This:C1470.messages.combine($messages)
 	
 	This:C1470.reasoning_content:=""
+	This:C1470.thoughts:=""
 	
 	If (This:C1470.ChatResult#"")
 		This:C1470.ChatResult+="\r\r"
@@ -147,6 +150,7 @@ Function onEventStream($chatCompletionsResult : cs:C1710.AIKit.OpenAIChatComplet
 				If ($chatCompletionsResult.choice.delta.text#"")
 					
 					If (This:C1470.reasoning_content#"")
+						This:C1470.thoughts:=This:C1470.reasoning_content
 						This:C1470.reasoning_content:=""
 						This:C1470.ChatResult:=This:C1470.reasoning_content
 					End if 

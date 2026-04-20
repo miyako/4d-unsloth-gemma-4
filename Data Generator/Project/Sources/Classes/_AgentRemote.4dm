@@ -130,6 +130,10 @@ Function onEventStream($chatCompletionsResult : cs:C1710.AIKit.OpenAIChatComplet
 	Else 
 		If ($chatCompletionsResult.terminated)
 			This:C1470.ChatResult+=$chatCompletionsResult.errors.extract("message").join("\r")
+			DELAY PROCESS:C323(Current process:C322; 60*60*1)
+			If (OB Instance of:C1731(This:C1470._onResponse; 4D:C1709.Function))
+				This:C1470._onResponse.call(This:C1470; $chatCompletionsResult)
+			End if 
 		End if 
 	End if 
 	
