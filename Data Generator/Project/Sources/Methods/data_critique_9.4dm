@@ -5,7 +5,7 @@
 this method uses AI to generate good and bad chatml messages about commands
 */
 
-var $id:="critique"
+var $id:="github"
 
 If (Count parameters:C259=0)
 	
@@ -27,7 +27,10 @@ Else
 	$assistingIdentity:=Folder:C1567(fk data folder:K87:12).folder("prompts/coding").file("identity-for-assisting.txt").getText()
 	
 	If ($prompt.length=0)
+		$projectPrompt:=$folder.file("project.txt").getText()
 		$userPrompt:=$folder.file("user.txt").getText()
+		$userPrompt+="\n"
+		$userPrompt+=$projectPrompt
 		//$folder:=Folder(fk data folder).folder("examples/"+$id)
 		//var $files : Collection
 		//$files:=$folder.files(fk recursive).query("extension == :1 and name != :2"; ".jsonl"; "error-@")
@@ -60,6 +63,6 @@ Else
 	$agent.trainingIdentity:=$trainingIdentity
 	$agent.count:=1000
 	$agent.task:=$id
-	$agent.startConversation($messages; Formula:C1597(data_critique_2))
+	$agent.startConversation($messages; Formula:C1597(data_critique_10))
 	
 End if 

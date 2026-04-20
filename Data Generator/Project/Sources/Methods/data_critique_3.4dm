@@ -60,6 +60,6 @@ Else
 	$agent.trainingIdentity:=$trainingIdentity
 	$agent.count:=1000
 	$agent.task:=$id
-	$agent.startConversation($messages; Formula:C1597(data_critique_2))
+	$agent.startConversation($messages; Formula:C1597(data_critique_4))
 	
 End if 
