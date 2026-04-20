@@ -19,26 +19,69 @@ For each ($snippet; $folder.files().query("extension == :1"; ".txt"))
 	$code_js:=$folder.file($snippet.name+".js").getText()
 	$code_in:=$folder.file($snippet.name+".txt").getText()
 	
+	$code_in:=Replace string:C233($code_in; "in Python, JavaScript, and 4D"; "")
+	
+	var $messages : Collection
+	var $message : Object
 	var $jsonl : Object
-	$jsonl:={}
-	$jsonl.instruction:=$code_in
-	$jsonl.input:=""
-	$jsonl.output:=$code_4d
+	
+	$messages:=[]
+	$message:={}
+	$message.role:="user"
+	$message.content:="Convert this python code to 4D\n"+$code_py
+	$messages.push($message)
+	
+	$message:={}
+	$message.role:="assistant"
+	$message.content:=$code_4d
+	$messages.push($message)
+	
+	$jsonl:={messages: $messages}
+	
+	//$jsonl.instruction:=$code_in
+	//$jsonl.input:=""
+	//$jsonl.output:=$code_4d
 	
 	$i+=1
 	$out.file(String:C10($i; "000000")+".jsonl").setText(JSON Stringify:C1217($jsonl; *))
 	
-	$jsonl:={}
-	$jsonl.instruction:="Convert this python code to 4D"
-	$jsonl.input:=$code_py
-	$jsonl.output:=$code_4d
+	$messages:=[]
+	$message:={}
+	$message.role:="user"
+	$message.content:=$code_in
+	$messages.push($message)
+	
+	$message:={}
+	$message.role:="assistant"
+	$message.content:=$code_4d
+	$messages.push($message)
+	
+	$jsonl:={messages: $messages}
+	
+	//$jsonl:={}
+	//$jsonl.instruction:="Convert this python code to 4D"
+	//$jsonl.input:=$code_py
+	//$jsonl.output:=$code_4d
 	
 	$i+=1
 	$out.file(String:C10($i; "000000")+".jsonl").setText(JSON Stringify:C1217($jsonl; *))
 	
-	$jsonl:={}
-	$jsonl.instruction:="Convert this javascript code to 4D"
-	$jsonl.input:=$code_js
-	$jsonl.output:=$code_4d
+	$messages:=[]
+	$message:={}
+	$message.role:="user"
+	$message.content:="Convert this javascript code to 4D\n"+$code_js
+	$messages.push($message)
+	
+	$message:={}
+	$message.role:="assistant"
+	$message.content:=$code_4d
+	$messages.push($message)
+	
+	$jsonl:={messages: $messages}
+	
+	//$jsonl:={}
+	//$jsonl.instruction:="Convert this javascript code to 4D"
+	//$jsonl.input:=$code_js
+	//$jsonl.output:=$code_4d
 	
 End for each 

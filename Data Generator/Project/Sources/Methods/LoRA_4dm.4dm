@@ -13,6 +13,7 @@ $folder:=$root.folder("projects")
 
 For each ($file; $folder.files(fk ignore invisible:K87:22 | fk recursive:K87:7).query("extension == :1"; ".4dm"))
 	
+	var $code : Text
 	$code:=$file.getText()
 	
 	//remove suffix
