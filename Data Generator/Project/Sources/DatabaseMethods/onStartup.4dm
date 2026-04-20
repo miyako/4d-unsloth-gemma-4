@@ -25,10 +25,11 @@ var $folder : 4D:C1709.Folder
 var $path; $mmproj; $cache_type_k; $cache_type_v : Text
 var $n_gpu_layers; $threads; $batches; $ubatch_size; $batch_size; $max_position_embeddings : Integer
 
-$folder:=$homeFolder.folder("gemma-4-E2B-tn-kb")
+$folder:=$homeFolder.folder("springsea-0.1")
 $path:="gemma-4-E2B-it.Q4_K_M.gguf"
+//$path:="gemma-4-E2B-it.Q8_0.gguf"
 $mmproj:="mmproj-F16.gguf"
-$URL:="keisuke-miyako/gemma-4-E2B-it-gguf-tn-kb-0.2"
+$URL:="keisuke-miyako/springsea-0.1"
 
 //$folder:=$homeFolder.folder("gemma-4-E2B-4d")
 //$path:="gemma-4-E2B-it.Q4_K_M.gguf"
@@ -77,21 +78,20 @@ parallel: $batches; \
 threads: $threads; \
 threads_batch: $threads; \
 threads_http: 2; \
-temp: 1; \
-min_p: 0; \
-top_k: 64; \
-top_p: 0.95; \
-repeat_penalty: 1.15; \
+temp: 0.3; \
+min_p: 0.05; \
+top_p: 1; \
+top_k: 40; \
+repeat_penalty: 1; \
 presence_penalty: 0.1; \
-mmproj: $folder.file($mmproj); \
+n_predict: 1024; \
 n_gpu_layers: $n_gpu_layers; \
 log_disable: False:C215; \
-log_file: $logFile; \
-jinja: True:C214}
+log_file: $logFile; verbose: False:C215}
 
 var $huggingfaces : cs:C1710.event.huggingfaces
 
-$huggingface:=cs:C1710.event.huggingface.new($folder; $URL; [$path; $mmproj])
+$huggingface:=cs:C1710.event.huggingface.new($folder; $URL; [$path])
 $huggingfaces:=cs:C1710.event.huggingfaces.new([$huggingface])
 
 $llama:=cs:C1710.llama.llama.new($port; $huggingfaces; $homeFolder; $options; $event)
