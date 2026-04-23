@@ -74,6 +74,7 @@ Else
 		var $result : Object
 		$result:=Try(JSON Parse:C1218(This:C1470.ChatResult; Is object:K8:27))
 		
+		var $name : Text
 		$name:=This:C1470.name
 		
 		If ($result#Null:C1517)
