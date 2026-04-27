@@ -1,6 +1,6 @@
 //%attributes = {"invisible":true}
 var $folder : 4D:C1709.Folder
-$folder:=Folder:C1567("/DATA/examples/github")
+$folder:=Folder:C1567("/DATA/examples/critique")
 var $files : Collection
 $files:=$folder.files(fk ignore invisible:K87:22).query("extension == :1"; ".jsonl")
 var $target : 4D:C1709.Folder
