@@ -25,11 +25,11 @@ var $folder : 4D:C1709.Folder
 var $path; $mmproj; $cache_type_k; $cache_type_v : Text
 var $n_gpu_layers; $threads; $batches; $ubatch_size; $batch_size; $max_position_embeddings : Integer
 
-$folder:=$homeFolder.folder("springsea-0.1")
+$folder:=$homeFolder.folder("springsea-0.2")
 $path:="gemma-4-E2B-it.Q4_K_M.gguf"
 //$path:="gemma-4-E2B-it.Q8_0.gguf"
 $mmproj:="mmproj-F16.gguf"
-$URL:="keisuke-miyako/springsea-0.1"
+$URL:="keisuke-miyako/springsea-0.2"
 
 //$folder:=$homeFolder.folder("gemma-4-E2B-4d")
 //$path:="gemma-4-E2B-it.Q4_K_M.gguf"
