@@ -5,7 +5,7 @@
 this method uses AI to generate text
 */
 
-var $id:="commands"
+var $id:="commands_cohere_a"
 //$id:="themes"
 
 var $target_folder : 4D:C1709.Folder
@@ -21,10 +21,10 @@ Else
 	If (This:C1470=Null:C1517)
 		
 		var $agent : cs:C1710._AgentRemoteText
-		//$agent:=cs._AgentRemoteText.new("Cohere"; "command-a-03-2025")
+		$agent:=cs:C1710._AgentRemoteText.new("Cohere"; "command-a-03-2025")
 		//$agent:=cs._AgentRemoteText.new("Azure"; "Mistral-Large-3")
 		//$agent:=cs._AgentRemoteText.new("Azure_xAI"; "grok-4-1-fast-reasoning")
-		$agent:=cs:C1710._AgentRemoteText.new("Azure_xAI"; "grok-4-20-reasoning")
+		//$agent:=cs._AgentRemoteText.new("Azure_xAI"; "Kimi-K2.6-1")
 		
 		var $folder : 4D:C1709.Folder
 		$folder:=Folder:C1567(fk data folder:K87:12).folder("prompts/"+$id+"/")
@@ -63,7 +63,7 @@ Else
 		$agent.task:=$id
 		$agent.name:=$file.name
 		$agent.api:=Current method name:C684
-		$agent.startConversation($messages; Formula:C1597(data_commands_1))
+		$agent.startConversation($messages; Formula from string:C1601(Current method name:C684))
 		
 	Else 
 		
@@ -81,9 +81,9 @@ Else
 			$folder.file($name+".jsonl").setText(JSON Stringify:C1217($result; *))
 		End if 
 		
-		//DELAY PROCESS(Current process; 60*30)
+		DELAY PROCESS:C323(Current process:C322; 60*30)
 		
-		data_commands_1
+		EXECUTE METHOD:C1007(Current method name:C684)
 		
 	End if 
 	

@@ -1,11 +1,11 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"invisible":true}
 #DECLARE($chatCompletionsResult : cs:C1710.AIKit.OpenAIChatCompletionsResult)
 
 /*
 this method uses AI to generate text
 */
 
-var $id:="commands_cohere_a"
+var $id:="commands_kimi_e"
 //$id:="themes"
 
 var $target_folder : 4D:C1709.Folder
@@ -21,10 +21,10 @@ Else
 	If (This:C1470=Null:C1517)
 		
 		var $agent : cs:C1710._AgentRemoteText
-		$agent:=cs:C1710._AgentRemoteText.new("Cohere"; "command-a-03-2025")
+		//$agent:=cs._AgentRemoteText.new("Cohere"; "command-a-03-2025")
 		//$agent:=cs._AgentRemoteText.new("Azure"; "Mistral-Large-3")
-		//$agent:=cs._AgentRemoteText.new("Azure_xAI"; "gpt-5.4-1")
-		//$agent:=cs._AgentRemoteText.new("Azure_xAI"; "Kimi-K2.6-1")
+		//$agent:=cs._AgentRemoteText.new("Azure_xAI"; "grok-4-1-fast-reasoning")
+		$agent:=cs:C1710._AgentRemoteText.new("Azure_xAI"; "Kimi-K2.6-1")
 		
 		var $folder : 4D:C1709.Folder
 		$folder:=Folder:C1567(fk data folder:K87:12).folder("prompts/"+$id+"/")
@@ -81,7 +81,7 @@ Else
 			$folder.file($name+".jsonl").setText(JSON Stringify:C1217($result; *))
 		End if 
 		
-		DELAY PROCESS:C323(Current process:C322; 60*30)
+		//DELAY PROCESS(Current process; 60*30)
 		
 		EXECUTE METHOD:C1007(Current method name:C684)
 		
