@@ -8,6 +8,9 @@ property stream : Boolean
 property reasoning_content : Text
 property apiKey : Text
 property provider : Text
+property task : Text
+property name : Text
+property api : Text
 
 Class constructor($provider : Text; $model : Text)
 	
@@ -101,7 +104,9 @@ Function onEventStream($chatCompletionsResult : cs:C1710.AIKit.OpenAIChatComplet
 					$chatCompletionsResult:=JSON Parse:C1218(JSON Stringify:C1217($chatCompletionsResult))
 					$chatCompletionsResult.choice.message:={role: "assistant"; content: This:C1470.ChatResult}
 				Else   //not streaming
-					This:C1470.ChatResult+=$chatCompletionsResult.choice.message.content
+					If ($chatCompletionsResult.choice.message.content#Null:C1517)
+						This:C1470.ChatResult+=$chatCompletionsResult.choice.message.content
+					End if 
 				End if 
 				This:C1470.messages.push($chatCompletionsResult.choice.message)
 			Else 
@@ -130,7 +135,7 @@ Function onEventStream($chatCompletionsResult : cs:C1710.AIKit.OpenAIChatComplet
 	Else 
 		If ($chatCompletionsResult.terminated)
 			This:C1470.ChatResult+=$chatCompletionsResult.errors.extract("message").join("\r")
-			DELAY PROCESS:C323(Current process:C322; 60*60*1)
+			DELAY PROCESS:C323(Current process:C322; 60*30)
 			If (OB Instance of:C1731(This:C1470._onResponse; 4D:C1709.Function))
 				This:C1470._onResponse.call(This:C1470; $chatCompletionsResult)
 			End if 
