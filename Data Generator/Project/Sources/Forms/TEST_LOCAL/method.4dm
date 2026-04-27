@@ -11,13 +11,16 @@ Case of
 		
 		var $systemPrompt; $inferenceIdentity : Text
 		$inferenceIdentity:=Folder:C1567(fk data folder:K87:12).folder("prompts/coding").file("identity-for-inference.txt").getText()
-		$systemPrompt:=Folder:C1567(fk data folder:K87:12).folder("prompts/coding").file("system.txt").getText()
 		
-		Form:C1466.systemPrompt:=$inferenceIdentity+"\n"+$systemPrompt
+		var $persona; $personaRuntime : Text
+		$persona:=File:C1566("/RESOURCES/prompts/le pecq.txt").getText()
+		$personaRuntime:=File:C1566("/RESOURCES/prompts/le pecq code.txt").getText()
+		
+		Form:C1466.systemPrompt:=$persona+"\n"+$personaRuntime
 		Form:C1466.prompt:={values: []; contents: []}
 		
 		var $files : Collection
-		$files:=Folder:C1567(fk resources folder:K87:11).files(fk ignore invisible:K87:22 | fk recursive:K87:7).query("extension == :1 order by name asc"; ".txt")
+		$files:=Folder:C1567(fk resources folder:K87:11).files(fk ignore invisible:K87:22).query("extension == :1 order by name asc"; ".txt")
 		
 		var $file : 4D:C1709.File
 		For each ($file; $files)
